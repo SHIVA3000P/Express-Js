@@ -28,8 +28,8 @@ app.get("/x/", (req, res) => {
 
 // Advanced Routing:
 
-app.get("/api/home", (req, res) => {
-  res.send("<h2>Home Page🏠</h2>");
+app.get("/api/users", (req, res) => {
+  res.send("<h2>get All Students🏠</h2>");
 });
 
 app.post("/api/users", (req, res) => {
@@ -88,6 +88,26 @@ const cb3 = (req, res, next) => {
 app.get("/api/arrays-cb", [cb1, cb2, cb3], (req, res) => {
   res.send("Arrays of CallBack Functions");
 });
+
+//  app.route() Method:
+
+app
+  .route("/api/students")
+  .get((req, res) => {
+    res.send("<h2>get All Students🏠</h2>");
+  })
+  .post((req, res) => {
+    res.send("<h2>students Acount Was Created.</h2>");
+  })
+  .put((req, res) => {
+    res.send("<h2>students Details Was Updated Completely.</h2>");
+  })
+  .patch((req, res) => {
+    res.send("<h2>students Email is Updated .</h2>");
+  })
+  .delete((req, res) => {
+    res.send("<h2>students Acount Was Deleted SuccessFully.</h2>");
+  });
 
 // Server Listening:
 app.listen(port, () => console.log(`Server is running on port: ${port}!`));
